@@ -1,55 +1,46 @@
 [
   {
-    "name": "Levels",
-    "type": "Pub",
+    "title": "Levels,Pub",
     "latitude": 28.5541,
     "longitude": 77.1944
   },
   {
-    "name": "Green Park Metro Station",
-    "type": "Train Station",
+    "title": "Green Park Metro Station",
     "latitude": 28.5599,
     "longitude": 77.2069
   },
   {
-    "name": "Qutab Minar",
-    "type": "Historical Monument",
-    "latitude": 28.5244,
-    "longitude": 77.1855
+    "title": "Odeon Social,Bar n Cafe",
+    "latitude": 28.6342,
+    "longitude": 77.2210
   },
   {
-    "name": "India Gate",
-    "type": "Historical Monument",
-    "latitude": 28.6129,
-    "longitude": 77.2295
+    "title": "Khan Market",
+    "latitude": 28.6001,
+    "longitude": 77.2270
   },
   {
-    "name": "Ambience Mall",
-    "type": "Mall",
-    "latitude": 28.5412,
-    "longitude": 77.1550
+    "title": "Laxman Fast Food",
+    "latitude": 28.5365,
+    "longitude": 77.1834
   },
   {
-    "name": "Select City Walk",
-    "type": "Mall",
+    "title": "Select City Walk,Mall",
     "latitude": 28.5285,
     "longitude": 77.2194
-  }
+  },
   {
-    "name": "Rimpy",
-    "type": "Restaurant",
+    "title": "Rimpy,Restaurant",
     "latitude": 28.5339,
     "longitude": 77.2088
   },
   {
-    "name": "Lajpat Nagar Market",
-    "type": "Market Place",
+    "title": "Lajpat Nagar Market",
     "latitude": 28.5677,
     "longitude": 77.2433
   },
   {
-    "name": "Bikanerwala",
-    "type": "Restaurant",
+    "title": "Bikanerwala,Restaurant",
     "latitude": 28.5374,
     "longitude": 77.2390
   }

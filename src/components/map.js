@@ -6,6 +6,8 @@ class Map extends Component {
     super(props);
     this.state = {
       map: "",
+      places: require("./locations.json"),
+      markers: []
     };
 
     // retain object instance when used in the function
@@ -31,7 +33,26 @@ class Map extends Component {
     this.setState({
       map: map,
     });
+    var allLocations=[];
+    var bounds = new window.google.maps.LatLngBounds();
+     this.state.places.forEach(place=>{
+        var  marker = new window.google.maps.Marker({
+         title: place.title,
+         position: {lat: place.latitude, lng: place.longitude},
+         map:map,
+         animation:window.google.maps.Animation.DROP
+       })
+        map.fitBounds(bounds);
+        /*push the marker to the array of markers*/
+        allLocations.push(marker);
+        /*extend the boundaries of the map for each marker*/
+        bounds.extend(marker.position);
+        /*Add event listener to the marker to open info window on that marker*/
 
+   })
+   this.setState({
+  markers:allLocations
+})
 
   }
 
