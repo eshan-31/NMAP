@@ -17,7 +17,7 @@ class Map extends Component {
   componentDidMount() {
     window.initMap = this.initMap;
     loadMapJS(
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyAJkamQdDfv44eCeGoT3fVV0g9CN_sYfqk&v=3&callback=initMap"
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyBobCzwOTb91mz78CfXRO9br4wdtmz-Ajw&v=3&callback=initMap"
     );
   }
 
@@ -55,7 +55,9 @@ class Map extends Component {
         marker.addListener('mouseout', function() {
           this.setIcon(defaultMarker);
         });
-
+        window.google.maps.event.addListener(marker,'click',()=> {
+         this.open(marker);
+        })
    })
    this.setState({
   markers:allLocations
@@ -63,7 +65,13 @@ class Map extends Component {
 
 
   }
-
+  open=(marker)=>{
+     marker.setAnimation(window.google.maps.Animation.BOUNCE);
+     var latlng = marker.getPosition();
+     this.state.map.setCenter(latlng);
+     setTimeout(function() {
+   marker.setAnimation(null)
+ }, 1800);}
 render() {
     return (
         <div id="map" />
