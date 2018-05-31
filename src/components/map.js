@@ -22,11 +22,14 @@ class Map extends Component {
   }
 
   initMap() {
+    var marker;
+    var defaultMarker = makeMarkerIcon('f03112');
+    var highlightedMarker = makeMarkerIcon('266baf');
     var map = document.getElementById("map");
     map.style.height = window.innerHeight + "px";
      map = new window.google.maps.Map(document.getElementById('map'),
                                {center : {lat: 28.549507, lng: 77.203613},
-                                 zoom: 13,
+                                 zoom: 18,
                                  mapTypeControl: false
                                });
 
@@ -39,20 +42,25 @@ class Map extends Component {
         var  marker = new window.google.maps.Marker({
          title: place.title,
          position: {lat: place.latitude, lng: place.longitude},
+         icon: defaultMarker,
          map:map,
          animation:window.google.maps.Animation.DROP
        })
         map.fitBounds(bounds);
-        /*push the marker to the array of markers*/
         allLocations.push(marker);
-        /*extend the boundaries of the map for each marker*/
         bounds.extend(marker.position);
-        /*Add event listener to the marker to open info window on that marker*/
+        marker.addListener('mouseover', function() {
+          this.setIcon(highlightedMarker);
+        });
+        marker.addListener('mouseout', function() {
+          this.setIcon(defaultMarker);
+        });
 
    })
    this.setState({
   markers:allLocations
 })
+
 
   }
 
@@ -62,7 +70,16 @@ render() {
     );
   }
 }
-
+function makeMarkerIcon(markerColor) {
+  var markerImage = new window.google.maps.MarkerImage(
+    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+    '|40|_|%E2%80%A2',
+    new window.google.maps.Size(21, 34),
+    new window.google.maps.Point(0, 0),
+    new window.google.maps.Point(10, 34),
+    new window.google.maps.Size(21,34));
+  return markerImage;
+}
 function loadMapJS(src) {
   var ref = window.document.getElementsByTagName("script")[0];
   var script = window.document.createElement("script");
