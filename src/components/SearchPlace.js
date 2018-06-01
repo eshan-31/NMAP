@@ -23,6 +23,8 @@ class SearchPlace extends Component{
           if(marker.title.toLowerCase().indexOf(query)>-1) {
             marker.setVisible(true);
             places.push(marker);
+            this.props.open(marker);
+
         } else
           {
             marker.setVisible(false);
@@ -31,8 +33,8 @@ class SearchPlace extends Component{
     }
 
 render = ()=> {
-    var locations = this.props.markers.map((marker,index)=>{
-            return(<li key={index} className="li_item" value={this.state.query}><a href="#">{marker.title}</a></li>)
+    var locations = this.props.markers.map((mar,index)=>{
+            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.open.bind(this,mar)}><a href="#">{mar.title}</a></li>)
     })
 	return (
 		<div>

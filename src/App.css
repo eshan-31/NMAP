@@ -35,23 +35,13 @@
   justify-content: space-around;;
 }
 
-.location-item {
-  cursor: pointer;
-  background-color: #a3ccff;
-  list-style-type: none;
-  font-size: 2.0vh;
-  padding: 2vh 2px;
-  text-align: center;
-  margin: 2vh 0;
-}
-
 .hidden_menu {
+  box-sizing: border-box;
   display: block;
   position: fixed;
   padding-top: 60px;
   font-size: 1em;
   margin: 0;
-  box-sizing: border-box;
   width: 20%;
   background-color: #eee;
   height: 100%;
@@ -68,19 +58,19 @@
 }
 
 .btn-menu {
+  position: fixed;
+  cursor: pointer;
+  border-radius: 8px;
   display: flex;
   line-height: 25px;
   font-weight: bold;
   color: #fff;
   background-color: #C40021;
   padding: 10px;
-  position: fixed;
   top: 5px;
   left: 5px;
-  cursor: pointer;
   z-index: 3;
   width: 100px;
-  border-radius: 8px;
 }
 
 .search_text {

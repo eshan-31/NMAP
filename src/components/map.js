@@ -76,7 +76,7 @@ class Map extends Component {
 render() {
     return (
       <div>
-      <Search markers={this.state.markers} markers={this.state.markers}/>
+      <Search markers={this.state.markers} markers={this.state.markers}  open={this.open}/>
         <div id="map" />
         </div>
     );
