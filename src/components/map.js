@@ -40,7 +40,7 @@ class Map extends Component {
     var allLocations=[];
     var bounds = new window.google.maps.LatLngBounds();
      this.state.places.forEach(place=>{
-        var  marker = new window.google.maps.Marker({
+         marker = new window.google.maps.Marker({
          title: place.title,
          position: {lat: place.latitude, lng: place.longitude},
          icon: defaultMarker,
@@ -76,7 +76,7 @@ class Map extends Component {
 render() {
     return (
       <div>
-      <Search markers={this.state.markers} markers={this.state.markers}  open={this.open}/>
+      <Search markers={this.state.markers} open={this.open}/>
         <div id="map" />
         </div>
     );

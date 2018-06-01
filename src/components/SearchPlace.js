@@ -34,23 +34,23 @@ class SearchPlace extends Component{
 
 render = ()=> {
     var locations = this.props.markers.map((mar,index)=>{
-            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.open.bind(this,mar)}><a href="#">{mar.title}</a></li>)
+            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.open.bind(this,mar)}><a>{mar.title}</a></li>)
     })
 	return (
 		<div>
 		<nav className="search" id="nav" role="navigation">
-    <input type="checkbox" id="hamburger" class="hidden_menu-ticker"/>
+    <input type="checkbox" id="hamburger" className="hidden_menu-ticker"/>
 
-    <label class="btn-menu" for="hamburger">
-      <div class="hamburger">
-        <span class="first"></span>
-        <span class="second"></span>
-        <span class="third"></span>
+    <label className="btn-menu" htmlFor="hamburger">
+      <div className="hamburger">
+        <span className="first"></span>
+        <span className="second"></span>
+        <span className="third"></span>
       </div>
-      <div class="search_text">Search</div>
+      <div className="search_text">Search</div>
     </label>
-    <aside class="hidden_menu">
-          		<ul  class="locations" id="ul_items" className="menu">
+    <aside className="hidden_menu">
+          		<ul  className="locations" id="ul_items" className="menu">
                 <input type="text filter" placeholder="Enter to search" value={this.state.query} className="search_items" onChange={event =>this.filter(event.target.value)} tabIndex="1"/>
                     {locations}
           		</ul>
