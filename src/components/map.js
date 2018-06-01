@@ -23,7 +23,6 @@ class Map extends Component {
   }
 
   initMap() {
-    var marker;
     var defaultMarker = makeMarkerIcon('f03112');
     var highlightedMarker = makeMarkerIcon('266baf');
     var map = document.getElementById("map");
@@ -40,7 +39,7 @@ class Map extends Component {
     var allLocations=[];
     var bounds = new window.google.maps.LatLngBounds();
      this.state.places.forEach(place=>{
-         marker = new window.google.maps.Marker({
+         var marker = new window.google.maps.Marker({
          title: place.title,
          position: {lat: place.latitude, lng: place.longitude},
          icon: defaultMarker,
