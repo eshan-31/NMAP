@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Search from './SearchPlace'
 
 class Map extends Component {
 
@@ -30,7 +31,7 @@ class Map extends Component {
      map = new window.google.maps.Map(document.getElementById('map'),
                                {center : {lat: 28.549507, lng: 77.203613},
                                  zoom: 18,
-                                 mapTypeControl: false
+                                 mapTypeControl: true
                                });
 
     this.setState({
@@ -74,7 +75,10 @@ class Map extends Component {
  }, 1800);}
 render() {
     return (
+      <div>
+      <Search markers={this.state.markers} markers={this.state.markers}/>
         <div id="map" />
+        </div>
     );
   }
 }

@@ -26,3 +26,150 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.locations {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;;
+}
+
+.location-item {
+  cursor: pointer;
+  background-color: #a3ccff;
+  list-style-type: none;
+  font-size: 2.0vh;
+  padding: 2vh 2px;
+  text-align: center;
+  margin: 2vh 0;
+}
+
+.hidden_menu {
+  display: block;
+  position: fixed;
+  padding-top: 60px;
+  font-size: 1em;
+  margin: 0;
+  box-sizing: border-box;
+  width: 20%;
+  background-color: #eee;
+  height: 100%;
+  top: 0;
+  left: -400px;
+  transition: left .2s;
+  z-index: 2;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+.hidden_menu-ticker {
+  display: none;
+}
+
+.btn-menu {
+  display: flex;
+  line-height: 25px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #C40021;
+  padding: 10px;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  z-index: 3;
+  width: 100px;
+  border-radius: 8px;
+}
+
+.search_text {
+  width: 100%;
+  text-align: center;
+}
+
+.hamburger {
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  transition: left .23s;
+  width: 30px;
+}
+
+.hamburger span {
+  display: block;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px 0 0;
+  transition: all .1s linear .03s;
+  position: relative;
+}
+
+.hamburger span.first {
+  margin-top: 0;
+}
+
+.hidden_menu-ticker:checked ~ .btn-menu {
+  border-radius: 50%;
+  width: 25px;
+}
+
+.hidden_menu-ticker:checked ~ .btn-menu > .search_text {
+  display: none;
+}
+
+.hidden_menu-ticker:checked ~ .hidden_menu {
+  left: 0;
+}
+
+.hidden_menu-ticker:checked ~ .btn-menu > .hamburger .first {
+  -webkit-transform: rotate(45deg);
+  top: 10px;
+}
+
+.hidden_menu-ticker:checked ~ .btn-menu > .hamburger .second {
+  opacity: 0;
+}
+
+.hidden_menu-ticker:checked ~ .btn-menu > .hamburger .third {
+  -webkit-transform: rotate(-45deg);
+  top: -10px;
+}
+
+.hidden_menu-ticker:checked > .container {
+  display: flex;
+}
+
+.gm-style-mtc {
+  display: none;
+}
+nav ul {
+  float: center;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  margin: 0px;
+  float: center;
+  background-color: #f2f2f2;
+}
+nav a {
+  margin-top: 20px;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  width: 100%;
+}
+
+.li_item {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  margin: 10px;
+  cursor: pointer;
+  height: 10px;
+  font-weight: bold;
+ }
+ .search_items {
+  font-weight: bold;
+  height: 20px;
+ }
