@@ -43,7 +43,7 @@
   font-size: 1em;
   margin: 0;
   width: 20%;
-  background-color: #eee;
+  background-color: #FFFAC2;
   height: 100%;
   top: 0;
   left: -400px;
@@ -140,7 +140,6 @@ nav ul {
 nav ul li {
   margin: 0px;
   float: center;
-  background-color: #f2f2f2;
 }
 nav a {
   margin-top: 20px;
@@ -151,6 +150,7 @@ nav a {
 }
 
 .li_item {
+  font-family: "Lucida, sans-serif";
   padding-bottom: 10px;
   padding-top: 10px;
   padding-right: 10px;
