@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Search from './SearchPlace'
+import * as FSApi from './foursquare'
+
 
 class Map extends Component {
 
@@ -92,6 +94,25 @@ info_open=(marker)=>{
   this.close();
   this.state.infowindow.open(this.state.map, marker);
   this.state.infowindow.setContent("Details About the Place ");
+  FSApi.requestFoursqureApi(marker.position.lat(), marker.position.lng()).then((response) => {
+    if (response.response.venues.length > 0) {
+    var venue = response.response.venues[0];
+    var category = "";
+    var address = "";
+    var near = "";
+    if (venue.categories[0].name) {
+        category = venue.categories[0].name;
+    }
+    if (venue.location.address) {
+        address = venue.location.address;
+    }
+    near=response.response.venues[2].name;
+    this.state.infowindow.setContent('<div><div><strong>Name: ' + marker.title + '</strong></div><div>Category: ' + category + ' </div><div>Address: ' + address+ '</div><div>Near: ' + near + '<div></div>');
+}
+
+}).catch(function (err) {
+this.state.infowindow.setContent('<div>Info cannott be loaded Sorry !</div>');
+});
 }
 
 //to close the infoWindow
