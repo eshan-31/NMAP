@@ -12,12 +12,13 @@ class Map extends Component {
       infowindow: ""
     };
 
-    // retain object instance when used in the function
+    // to retain object instance when used in the function
     this.initMap = this.initMap.bind(this);
     this.openInfoWindow = this.open.bind(this);
     this.close = this.close.bind(this);
   }
 
+//when the app is loaded
   componentDidMount() {
     window.initMap = this.initMap;
     loadMapJS(
@@ -77,6 +78,7 @@ class Map extends Component {
 
   }
 
+//to animate the selected marker and center the map ti it's location
   open=(marker)=>{
      marker.setAnimation(window.google.maps.Animation.BOUNCE);
      var latlng = marker.getPosition();
@@ -85,12 +87,14 @@ class Map extends Component {
    marker.setAnimation(null)
  }, 1800);}
 
+//Separate function for adding infoWindow so that it doesn't open up automatically while searching unless it is clicked
 info_open=(marker)=>{
   this.close();
   this.state.infowindow.open(this.state.map, marker);
   this.state.infowindow.setContent("Details About the Place ");
 }
 
+//to close the infoWindow
  close() {
 
   this.state.infowindow.close();
@@ -104,6 +108,8 @@ render() {
     );
   }
 }
+
+//to make custom markers
 function makeMarkerIcon(markerColor) {
   var markerImage = new window.google.maps.MarkerImage(
     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -114,6 +120,8 @@ function makeMarkerIcon(markerColor) {
     new window.google.maps.Size(21,34));
   return markerImage;
 }
+
+//to load the map using JS
 function loadMapJS(src) {
   var ref = window.document.getElementsByTagName("script")[0];
   var script = window.document.createElement("script");
