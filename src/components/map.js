@@ -67,6 +67,7 @@ class Map extends Component {
         });
         window.google.maps.event.addListener(marker,'click',()=> {
          this.open(marker);
+         this.info_open(marker);
         })
    })
    this.setState({
@@ -77,15 +78,18 @@ class Map extends Component {
   }
 
   open=(marker)=>{
-    this.close();
-this.state.infowindow.open(this.state.map, marker);
      marker.setAnimation(window.google.maps.Animation.BOUNCE);
-     this.state.infowindow.setContent("Details About the Place ");
      var latlng = marker.getPosition();
      this.state.map.setCenter(latlng);
      setTimeout(function() {
    marker.setAnimation(null)
  }, 1800);}
+
+info_open=(marker)=>{
+  this.close();
+  this.state.infowindow.open(this.state.map, marker);
+  this.state.infowindow.setContent("Details About the Place ");
+}
 
  close() {
 
@@ -94,7 +98,7 @@ this.state.infowindow.open(this.state.map, marker);
 render() {
     return (
       <div>
-      <Search markers={this.state.markers} open={this.open}  close={this.close}/>
+      <Search markers={this.state.markers} open={this.open} info_open={this.info_open} close={this.close}/>
         <div id="map" />
         </div>
     );
