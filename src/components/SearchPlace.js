@@ -4,6 +4,7 @@ class SearchPlace extends Component{
   state = {
     query: ''
   }
+
       filter = (query)=> {
         let q = query.toLowerCase();
         var up = query.toUpperCase();
@@ -24,7 +25,6 @@ class SearchPlace extends Component{
             marker.setVisible(true);
             places.push(marker);
             this.props.open(marker);
-
         } else
           {
             marker.setVisible(false);
@@ -34,7 +34,7 @@ class SearchPlace extends Component{
 
 render = ()=> {
     var locations = this.props.markers.map((mar,index)=>{
-            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.open.bind(this,mar)}><a>{mar.title}</a></li>)
+            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.info_open.bind(this,mar)}><a>{mar.title}</a></li>)
     })
 	return (
 		<div>
@@ -51,7 +51,7 @@ render = ()=> {
     </label>
     <aside className="hidden_menu">
           		<ul  className="locations" id="ul_items" className="menu">
-                <input type="text filter" placeholder="Enter to search" value={this.state.query} className="search_items" onChange={event =>this.filter(event.target.value)} tabIndex="1"/>
+                <input type="text filter" placeholder="Enter to search" value={this.state.query} className="search_items" onChange={event =>this.filter(event.target.value)}/>
                     {locations}
           		</ul>
               </aside>
