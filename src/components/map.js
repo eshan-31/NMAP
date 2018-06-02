@@ -55,7 +55,7 @@ class Map extends Component {
          map:map,
          animation:window.google.maps.Animation.DROP
        })
-
+       map.addListener('click',()=> {this.state.infowindow.close()})
         map.fitBounds(bounds);
         places.push(marker);
         bounds.extend(marker.position);
