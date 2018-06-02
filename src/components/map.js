@@ -124,7 +124,7 @@ render() {
     return (
       <div>
       <Search markers={this.state.markers} open={this.open} info_open={this.info_open} close={this.close}/>
-        <div id="map" />
+        <div aria-label="map" role="presentation" id="map" />
         </div>
     );
   }

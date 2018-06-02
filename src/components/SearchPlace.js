@@ -42,7 +42,7 @@ render = ()=> {
     <input type="checkbox" id="hamburger" className="hidden_menu-ticker"/>
 
     <label className="btn-menu" htmlFor="hamburger">
-      <div className="hamburger">
+      <div tabIndex="1" aria-label="Click Here" role="button" className="hamburger">
         <span className="first"></span>
         <span className="second"></span>
         <span className="third"></span>
@@ -50,7 +50,7 @@ render = ()=> {
       <div className="search_text">Search</div>
     </label>
     <aside className="hidden_menu">
-          		<ul  className="locations" id="ul_items" className="menu">
+          		<ul  tabIndex="2" aria-label="List of places" className="locations" id="ul_items" className="menu">
                 <input type="text filter" placeholder="Enter to search" value={this.state.query} className="search_items" onChange={event =>this.filter(event.target.value)}/>
                     {locations}
           		</ul>
