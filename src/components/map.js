@@ -8,11 +8,14 @@ class Map extends Component {
     this.state = {
       map: "",
       places: require("./locations.json"),
-      markers: []
+      markers: [],
+      infowindow: ""
     };
 
     // retain object instance when used in the function
     this.initMap = this.initMap.bind(this);
+    this.openInfoWindow = this.open.bind(this);
+    this.close = this.close.bind(this);
   }
 
   componentDidMount() {
@@ -33,10 +36,16 @@ class Map extends Component {
                                  mapTypeControl: true
                                });
 
+                               var InfoWindow = new window.google.maps.InfoWindow({});
+                               window.google.maps.event.addListener(InfoWindow, "closeclick", function() {
+                                 this.close();
+                               });
     this.setState({
       map: map,
+      infowindow: InfoWindow
+
     });
-    var allLocations=[];
+    var places=[];
     var bounds = new window.google.maps.LatLngBounds();
      this.state.places.forEach(place=>{
          var marker = new window.google.maps.Marker({
@@ -46,8 +55,9 @@ class Map extends Component {
          map:map,
          animation:window.google.maps.Animation.DROP
        })
+
         map.fitBounds(bounds);
-        allLocations.push(marker);
+        places.push(marker);
         bounds.extend(marker.position);
         marker.addListener('mouseover', function() {
           this.setIcon(highlightedMarker);
@@ -60,22 +70,31 @@ class Map extends Component {
         })
    })
    this.setState({
-  markers:allLocations
+  markers:places
 })
 
 
   }
+
   open=(marker)=>{
+    this.close();
+this.state.infowindow.open(this.state.map, marker);
      marker.setAnimation(window.google.maps.Animation.BOUNCE);
+     this.state.infowindow.setContent("Details About the Place ");
      var latlng = marker.getPosition();
      this.state.map.setCenter(latlng);
      setTimeout(function() {
    marker.setAnimation(null)
  }, 1800);}
+
+ close() {
+
+  this.state.infowindow.close();
+}
 render() {
     return (
       <div>
-      <Search markers={this.state.markers} open={this.open}/>
+      <Search markers={this.state.markers} open={this.open}  close={this.close}/>
         <div id="map" />
         </div>
     );
