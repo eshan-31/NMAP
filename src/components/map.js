@@ -41,7 +41,7 @@ class Map extends Component {
 
                                var InfoWindow = new window.google.maps.InfoWindow({});
                                window.google.maps.event.addListener(InfoWindow, "closeclick", function() {
-                                 this.close();
+                                 this.close(); map.setCenter({lat: 28.549507, lng: 77.203613});
                                });
     this.setState({
       map: map,
@@ -58,7 +58,7 @@ class Map extends Component {
          map:map,
          animation:window.google.maps.Animation.DROP
        })
-       map.addListener('click',()=> {this.state.infowindow.close()})
+       map.addListener('click',()=> {this.state.infowindow.close(); this.state.map.setCenter({lat: 28.549507, lng: 77.203613});})
         map.fitBounds(bounds);
         places.push(marker);
         bounds.extend(marker.position);
