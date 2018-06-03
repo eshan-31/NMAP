@@ -100,7 +100,7 @@ info_open=(marker)=>{
     var category = venue.categories[0].name? venue.categories[0].name : "Unavailable";
     var address = venue.location.address? venue.location.address : "Unavailable";
     var near = response.response.venues[2]? response.response.venues[2].name : "Unavailable";
-    var read_more = 'Wanna read more ? <a className="read_link" href="https://foursquare.com/v/' + venue.id + '" target="_blank"><b>Click here</b></a>';
+    var read_more = 'Wanna read more ?(FourseSquare) <a className="read_link" href="https://foursquare.com/v/' + venue.id + '" target="_blank"><b>Click here</b></a>';
     this.state.infowindow.setContent('<div aria-label="infowindow content"><div><strong>Name: ' + marker.title + '</strong></div><div>Category: ' + category + ' </div><div>Address: ' + address+ '</div><div>Near: ' + near + '<div><div>' + read_more + '</div></div>');
 } else {this.state.infowindow.setContent('<div>Info cannott be loaded Sorry !</div>');}
 
@@ -109,6 +109,10 @@ this.state.infowindow.setContent('<div>Info cannott be loaded Sorry !</div>');
 });
 }
 
+open_both=(marker)=>{
+  this.open(marker);
+  this.info_open(marker);
+}
 //to close the infoWindow
  close() {
 
@@ -117,7 +121,7 @@ this.state.infowindow.setContent('<div>Info cannott be loaded Sorry !</div>');
 render() {
     return (
       <div>
-      <Search markers={this.state.markers} open={this.open} info_open={this.info_open} close={this.close}/>
+      <Search markers={this.state.markers} open={this.open} info_open={this.info_open} open_both={this.open_both} close={this.close}/>
         <div aria-label="map" role="presentation" id="map" />
         </div>
     );

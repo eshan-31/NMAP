@@ -34,7 +34,7 @@ class SearchPlace extends Component{
 
 render = ()=> {
     var locations = this.props.markers.map((mar,index)=>{
-            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.info_open.bind(this,mar)}><a>{mar.title}</a></li>)
+            return(<li key={index} className="li_item" value={this.state.query} onClick={this.props.open_both.bind(this,mar)}><a>{mar.title}</a></li>)
     })
 	return (
 		<div>
