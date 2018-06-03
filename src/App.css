@@ -27,6 +27,12 @@
   to { transform: rotate(360deg); }
 }
 
+a{
+  color : red;
+  text-decoration: none;
+}
+
+
 .locations {
   margin: 0;
   padding: 0;

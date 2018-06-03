@@ -94,21 +94,15 @@ info_open=(marker)=>{
   this.close();
   this.state.infowindow.open(this.state.map, marker);
   this.state.infowindow.setContent("Details About the Place ");
-  FSApi.requestFoursqureApi(marker.position.lat(), marker.position.lng()).then((response) => {
+  FSApi.requestFoursqureApi(marker.position.lat(), marker.position.lng()).then((response) => { console.log(response);
     if (response.response.venues.length > 0) {
     var venue = response.response.venues[0];
-    var category = "";
-    var address = "";
-    var near = "";
-    if (venue.categories[0].name) {
-        category = venue.categories[0].name;
-    }
-    if (venue.location.address) {
-        address = venue.location.address;
-    }
-    near=response.response.venues[2].name;
-    this.state.infowindow.setContent('<div><div><strong>Name: ' + marker.title + '</strong></div><div>Category: ' + category + ' </div><div>Address: ' + address+ '</div><div>Near: ' + near + '<div></div>');
-}
+    var category = venue.categories[0].name? venue.categories[0].name : "Unavailable";
+    var address = venue.location.address? venue.location.address : "Unavailable";
+    var near = response.response.venues[2]? response.response.venues[2].name : "Unavailable";
+    var read_more = 'Wanna read more ? <a className="read_link" href="https://foursquare.com/v/' + venue.id + '" target="_blank"><b>Click here</b></a>';
+    this.state.infowindow.setContent('<div><div><strong>Name: ' + marker.title + '</strong></div><div>Category: ' + category + ' </div><div>Address: ' + address+ '</div><div>Near: ' + near + '<div><div>' + read_more + '</div></div>');
+} else {this.state.infowindow.setContent('<div>Info cannott be loaded Sorry !</div>');}
 
 }).catch(function (err) {
 this.state.infowindow.setContent('<div>Info cannott be loaded Sorry !</div>');

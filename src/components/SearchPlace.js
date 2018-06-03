@@ -50,7 +50,7 @@ render = ()=> {
       <div className="search_text">Search</div>
     </label>
     <aside className="hidden_menu">
-          		<ul  tabIndex="2" aria-label="List of places" className="locations" id="ul_items" className="menu">
+          		<ul  tabIndex="2" aria-label="List of places" className="locations menu" id="ul_items">
                 <input type="text filter" placeholder="Enter to search" value={this.state.query} className="search_items" onChange={event =>this.filter(event.target.value)}/>
                     {locations}
           		</ul>
