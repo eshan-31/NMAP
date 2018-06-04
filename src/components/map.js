@@ -48,8 +48,16 @@ class Map extends Component {
       infowindow: InfoWindow
 
     });
+
     var places=[];
     var bounds = new window.google.maps.LatLngBounds();
+    window.onresize = () =>{
+      var c = map.getCenter();
+      window.google.maps.event.trigger(map, 'resize');
+      map.setCenter(c)
+      map.fitBounds(bounds);
+      map.panToBounds(bounds);
+};
      this.state.places.forEach(place=>{
          var marker = new window.google.maps.Marker({
          title: place.title,

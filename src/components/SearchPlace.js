@@ -38,7 +38,7 @@ render = ()=> {
     })
 	return (
 		<div>
-		<nav className="search" id="nav" role="navigation">
+		<nav className="search" id="nav">
     <input type="checkbox" id="hamburger" className="hidden_menu-ticker"/>
 
     <label className="btn-menu" htmlFor="hamburger">
