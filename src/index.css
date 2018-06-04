@@ -4,14 +4,13 @@ body {
   font-family: sans-serif;
 }
 
-
 @media screen and (max-width: 840px) {
   .hidden_menu {
     min-width: 100%;
     max-height: 10%;
   }
+
   .li_item {
     display: none;
   }
-
 }
