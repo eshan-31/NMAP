@@ -1,12 +1,12 @@
-#Neighborhood Map
+# Neighborhood Map
 This project shows a map of South Delhi Neighborhood with some interesting locations marked on the map. There is also a button which implements the search functionality of searching the place by name. Moreover by clicking on the marker of any place, more info can be gathered about it. The app is made to be responsive so as to function perfectly is various sizes of devices.
 
-##Additional info
+## Additional info
 - The map is displayed using Google Maps API
 - The information about places is displayed using FourSquare API
 
-##Installation
-###Development mode
+## Installation
+### Development mode
 1. Download or clone the directory using
 ```
 npm clone
@@ -20,7 +20,7 @@ npm install
 npm start
 ```
 
-###Production mode
+### Production mode
 1. Download or clone the directory using
 ```
 npm clone
@@ -43,6 +43,6 @@ python -m SimpleHTTPServer 8090
 ```
 6. In your browser open [http://localhost:8090](http://localhost:8090)
 
-##Resources
+## Resources
 * [Foursquare API](https://developer.foursquare.com/)
 * [Google Map API](https://developers.google.com/maps/documentation/javascript/tutorial)
