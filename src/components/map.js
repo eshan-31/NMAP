@@ -50,7 +50,9 @@ class Map extends Component {
     });
 
     var places=[];
-    var bounds = new window.google.maps.LatLngBounds();
+    var bounds = new window.google.maps.LatLngBounds(); //to find the boundaries to fit the map
+
+    //when the window resizes, resize map to fit the window
     window.onresize = () =>{
       var c = map.getCenter();
       window.google.maps.event.trigger(map, 'resize');
@@ -58,6 +60,8 @@ class Map extends Component {
       map.fitBounds(bounds);
       map.panToBounds(bounds);
 };
+
+//place markers on the initial screen
      this.state.places.forEach(place=>{
          var marker = new window.google.maps.Marker({
          title: place.title,
@@ -66,16 +70,22 @@ class Map extends Component {
          map:map,
          animation:window.google.maps.Animation.DROP
        })
+
+       //when the map is clicked, the infowindow is closed and the map is re centered
        map.addListener('click',()=> {this.state.infowindow.close(); this.state.map.setCenter({lat: 28.549507, lng: 77.203613});})
         map.fitBounds(bounds);
         places.push(marker);
         bounds.extend(marker.position);
+
+        //change the color of marker when hovered
         marker.addListener('mouseover', function() {
           this.setIcon(highlightedMarker);
         });
         marker.addListener('mouseout', function() {
           this.setIcon(defaultMarker);
         });
+
+        //bounce the marker and open infowindow when the marker is clicked
         window.google.maps.event.addListener(marker,'click',()=> {
          this.open(marker);
          this.info_open(marker);
@@ -83,10 +93,7 @@ class Map extends Component {
    })
    this.setState({
   markers:places
-})
-
-
-  }
+})  }
 
 //to animate the selected marker and center the map ti it's location
   open=(marker)=>{

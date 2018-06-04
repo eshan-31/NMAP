@@ -4,7 +4,7 @@ class SearchPlace extends Component{
   state = {
     query: ''
   }
-
+//to filter the search query
       filter = (query)=> {
         let q = query.toLowerCase();
         var up = query.toUpperCase();
