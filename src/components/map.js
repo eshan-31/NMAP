@@ -156,31 +156,11 @@ class Map extends Component {
         this.state.infowindow.close();
     }
     render() {
-        return ( <
-            div >
-            <
-            Search markers = {
-                this.state.markers
-            }
-            open = {
-                this.open
-            }
-            info_open = {
-                this.info_open
-            }
-            open_both = {
-                this.open_both
-            }
-            close = {
-                this.close
-            }
-            /> <
-            div aria - label = "map"
-            role = "presentation"
-            id = "map" / >
-            <
-            /div>
-        );
+        return ( <div>
+                   <Search markers = {this.state.markers} open = {this.open} info_open = {this.info_open} open_both = {this.open_both} close = {this.close}/>
+                   <div aria-label = "map" role = "presentation" id = "map" />
+                   < /div>
+              );
     }
 }
 
