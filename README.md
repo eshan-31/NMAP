@@ -46,3 +46,15 @@ python -m SimpleHTTPServer 8090
 ## Resources
 * [Foursquare API](https://developer.foursquare.com/)
 * [Google Map API](https://developers.google.com/maps/documentation/javascript/tutorial)
+
+## The UI
+
+### Initial page 
+![initial page](https://github.com/eshan-31/NMAP/blob/master/images/initial.png)
+### Search sidebar
+![search functionality](https://github.com/eshan-31/NMAP/blob/master/images/search.png)
+### Infowindow
+![infowindow](https://github.com/eshan-31/NMAP/blob/master/images/infowindow.png)
+### More info on FourSquare
+![Foursquare](https://github.com/eshan-31/NMAP/blob/master/images/foursquare.png)
+
